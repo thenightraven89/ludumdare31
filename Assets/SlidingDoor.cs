@@ -7,10 +7,7 @@ public class SlidingDoor : MonoBehaviour
 
     private bool isOpen;
 
-    public GameObject doorPiece;
-
-    public Transform openPosition;
-    public Transform closedPosition;
+    public GameObject[] doorPieces;
 
     public float doorOperatingTime;
 
@@ -24,25 +21,30 @@ public class SlidingDoor : MonoBehaviour
 
     public void OpenDoor()
     {
-        LeanTween.moveLocalX(doorPiece, openPosition.localPosition.x, doorOperatingTime);
+        //LeanTween.moveLocalX(doorPiece, openPosition.localPosition.x, doorOperatingTime);
+
+        for (int i = 0; i < doorPieces.Length; i++)
+        {
+            LeanTween.scaleX(doorPieces[i], 0.1f, doorOperatingTime);
+        }
+
+        isOpen = true;
     }
 
     public void CloseDoor()
     {
-        LeanTween.moveLocalX(doorPiece, closedPosition.localPosition.x, doorOperatingTime);
-    }
+        //LeanTween.moveLocalX(doorPiece, closedPosition.localPosition.x, doorOperatingTime);
 
-    public void SetDoorOpen(bool value)
-    {
-        if (value)
+        //LeanTween.moveLocalX(doorPiece, openPosition.localPosition.x, doorOperatingTime);
+
+        for (int i = 0; i < doorPieces.Length; i++)
         {
-            OpenDoor();
+            LeanTween.scaleX(doorPieces[i], 1f, doorOperatingTime);
         }
-        else
-        {
-            CloseDoor();
-        }
+
+        isOpen = false;
     }
+    
 
     #endregion
 
@@ -50,11 +52,19 @@ public class SlidingDoor : MonoBehaviour
     {
         if (isOpen)
         {
-            doorPiece.transform.localPosition = openPosition.transform.localPosition;
+            //LeanTween.moveLocalX(doorPiece, openPosition.localPosition.x, doorOperatingTime);
+
+            for (int i = 0; i < doorPieces.Length; i++)
+            {
+                doorPieces[i].transform.localScale = new Vector3(0.1f, 1f, 1f);
+            }
         }
         else
         {
-            doorPiece.transform.localPosition = closedPosition.transform.localPosition;
+            for (int i = 0; i < doorPieces.Length; i++)
+            {
+                doorPieces[i].transform.localScale = Vector3.one;
+            }
         }
     }
 

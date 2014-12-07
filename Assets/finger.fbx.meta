@@ -1,24 +1,17 @@
 fileFormatVersion: 2
-guid: dea0490335113754b9b408ccee6f3a0d
+guid: f35bd0298e4a0a04282a8d7503f9a971
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cube
-    100004: Lamp
-    100006: //RootNode
-    400000: Camera
-    400002: Cube
-    400004: Lamp
-    400006: //RootNode
-    2300000: Cube
-    3300000: Cube
-    4300000: Cube
-    6400000: Cube
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cone
     7400000: Default Take
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -36,12 +29,12 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 0
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     weldVertices: 1
@@ -50,11 +43,11 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 20
-    splitTangentsAcrossUV: 0
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
     normalImportMode: 1
-    tangentImportMode: 1
-  importAnimation: 0
+    tangentImportMode: 2
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
