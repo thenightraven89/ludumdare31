@@ -9,6 +9,8 @@ public class TeleportPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            StageManager.instance.Progress();
+
             Vector3 distance = transform.position - other.transform.position;
 
             other.transform.position = new Vector3(destination.position.x + distance.z, other.transform.position.y, destination.position.z - distance.x);

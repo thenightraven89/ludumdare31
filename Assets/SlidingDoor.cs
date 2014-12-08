@@ -4,8 +4,10 @@ using System.Collections;
 public class SlidingDoor : MonoBehaviour
 {
     public bool isInitiallyOpen;
+    public bool isInitiallyLocked;
 
-    private bool isOpen;
+    private bool isOpen; // open as in position
+    private bool isLocked; // locked as in passcode
 
     public GameObject[] doorPieces;
 
@@ -14,6 +16,7 @@ public class SlidingDoor : MonoBehaviour
     public void Start()
     {
         isOpen = isInitiallyOpen;
+        isLocked = isInitiallyLocked;
         InitializeDoor(isOpen);
     }
 
@@ -75,17 +78,34 @@ public class SlidingDoor : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Walls"))
+        if (other.CompareTag("Player"))
         {
-            OpenDoor();
+            if (!isLocked)
+            {
+                OpenDoor();
+            }
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Walls"))
+        if (other.CompareTag("Player"))
         {
-            CloseDoor();
+            if (!isLocked)
+            {
+                CloseDoor();
+            }
         }
+    }
+
+    
+    internal void Unlock()
+    {
+        isLocked = false;
+    }
+
+    internal void Lock()
+    {
+        isLocked = true;
     }
 }
