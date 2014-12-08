@@ -13,6 +13,10 @@ public class StageManager : MonoBehaviour
         instance = this;
         state = StageState.Stage1;
         screen.renderer.material = maps[0];
+
+        snowman.SetActive(false);
+        noteConnor.SetActive(false);
+        noteDimitri.SetActive(false);
     }
 
     [HideInInspector]
@@ -43,6 +47,18 @@ public class StageManager : MonoBehaviour
 
     public Material[] maps;
 
+    public GameObject snowman;
+
+    public GameObject dimitriLaptop1;
+    public GameObject dimitriLaptop2;
+    public GameObject dimitriLaptop3;
+
+    public GameObject noteConnor;
+
+    public GameObject noteDimitri;
+
+    public GameObject noteCantina;
+
     public void Progress()
     {
         switch (state)
@@ -51,6 +67,13 @@ public class StageManager : MonoBehaviour
                 state = StageState.Stage2;
                 Debug.Log("2");
                 screen.renderer.material = maps[1];
+
+                dimitriLaptop1.SetActive(true);
+                dimitriLaptop2.SetActive(false);
+                dimitriLaptop3.SetActive(false);
+
+                noteDimitri.SetActive(true);                
+
                 break;
 
             case StageState.Stage2:
@@ -59,6 +82,12 @@ public class StageManager : MonoBehaviour
                     state = StageState.Stage3;
                     Debug.Log("3");
                     screen.renderer.material = maps[2];
+
+                    dimitriLaptop1.SetActive(false);
+                    dimitriLaptop2.SetActive(true);
+                    dimitriLaptop3.SetActive(false);
+
+                    snowman.SetActive(true);
                 }
                 break;
 
@@ -68,6 +97,10 @@ public class StageManager : MonoBehaviour
                     state = StageState.Stage4;
                     Debug.Log("4");
                     screen.renderer.material = maps[3];
+
+                    noteConnor.SetActive(true);
+                    snowman.SetActive(false);
+                    noteCantina.SetActive(false);
                 }
                 break;
 
@@ -77,6 +110,11 @@ public class StageManager : MonoBehaviour
                     state = StageState.Stage5;
                     Debug.Log("5");
                     screen.renderer.material = maps[4];
+
+                    dimitriLaptop1.SetActive(false);
+                    dimitriLaptop2.SetActive(false);
+                    dimitriLaptop3.SetActive(true);
+                    noteCantina.SetActive(true);
                 }
                 break;
 
