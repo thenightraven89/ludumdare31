@@ -11,7 +11,7 @@ public class Recording : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f));
             RaycastHit hit;
 
             if (collider.Raycast(ray, out hit, 100f))
