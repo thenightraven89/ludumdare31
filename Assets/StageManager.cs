@@ -59,6 +59,8 @@ public class StageManager : MonoBehaviour
 
     public GameObject noteCantina;
 
+    public GameObject noteHall;
+
     public void Progress()
     {
         switch (state)
@@ -72,7 +74,8 @@ public class StageManager : MonoBehaviour
                 dimitriLaptop2.SetActive(false);
                 dimitriLaptop3.SetActive(false);
 
-                noteDimitri.SetActive(true);                
+                noteDimitri.SetActive(true);
+                noteHall.SetActive(false);
 
                 break;
 
@@ -87,6 +90,7 @@ public class StageManager : MonoBehaviour
                     dimitriLaptop2.SetActive(true);
                     dimitriLaptop3.SetActive(false);
 
+                    noteHall.SetActive(true);
                     snowman.SetActive(true);
                 }
                 break;

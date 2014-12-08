@@ -42,12 +42,18 @@ public class Clue : MonoBehaviour
     {
         while (!hasLeft)
         {
+            LeanTween.value(gameObject, "SetAlpha", 0f, 1f, 1f);
             yield return new WaitForSeconds(2.5f);
             StartCameraCraze();
             yield return new WaitForSeconds(2.5f);
             StopCameraCraze();
         }
         yield return null;
+    }
+
+    private void SetAlpha(float value)
+    {
+        renderer.material.SetColor("_TintColor", new Color(0.5f, 0.5f, 0.5f, value));
     }
 
     public void StartCameraCraze()
